@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function  register(Request $request)
+    public function register(Request $request)
     {
         $fields = $request->validate([
             'name' => ['required', 'max:255'],
@@ -23,6 +23,7 @@ class AuthController extends Controller
         return [
             'user' => $user,
             'token' => $token->plainTextToken,
+            'message' => 'Account registered successfully.'
         ];
     }
 
